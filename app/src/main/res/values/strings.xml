@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Aguas Riojanas</string>
+    <string name="b_datos_utiles">Datos Utiles</string>
+    <string name="b_notificaciones">Notificaciones</string>
+    <string name="b_asistencia_tecnica">Asistencia Tecnica</string>
+    <string name="b_estado_de_cuenta">Estado de Cuenta</string>
+    <string name="b_unidad_facturacion">Unidad Facturacion</string>
+    <string name="title_activity_datos_utiles">DatosUtiles</string>
+    <string name="menu_lugares_de_pago">Lugares\nde pago</string>
+    <string name="menu_oficinas_comerciales">Oficinas\ncomerciales</string>
+    <string name="menu_datos_de_contacto">Datos de\ncontacto</string>
 </resources>

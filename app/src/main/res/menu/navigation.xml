@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/lugares_pago"
+        android:title="@string/menu_lugares_de_pago" />
+
+    <item
+        android:id="@+id/oficinas_comerciales"
+        android:title="@string/menu_oficinas_comerciales" />
+
+    <item
+        android:id="@+id/datos_contacto"
+        android:title="@string/menu_datos_de_contacto" />
+
+</menu>

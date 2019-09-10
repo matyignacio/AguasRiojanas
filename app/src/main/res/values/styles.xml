@@ -86,10 +86,11 @@
     <style name="b_primary">
         <item name="android:padding">5dp</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginTop">15dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textSize">20dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
         <item name="android:ems">12</item>
         <item name="android:typeface">sans</item>
         <item name="android:textColor">@color/textColorPrimaryAppBar</item>
