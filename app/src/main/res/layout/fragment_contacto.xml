@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout_primary"
+    tools:context=".ui.DatosUtilesFragments.Contacto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/tvTelefono"
+            style="@style/b_primary_mini"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_phone_white_24dp" />
+
+        <Button
+            android:id="@+id/tvWeb"
+            style="@style/b_primary_mini"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTelefono"
+            android:drawableStart="@drawable/ic_web_white_24dp" />
+
+        <Button
+            android:id="@+id/tvCorreo"
+            style="@style/b_primary_mini"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvWeb"
+            android:drawableStart="@drawable/ic_email_white_24dp" />
+    </RelativeLayout>
+
+</FrameLayout>

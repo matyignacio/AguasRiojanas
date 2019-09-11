@@ -6,7 +6,8 @@
     <string name="b_estado_de_cuenta">Estado de Cuenta</string>
     <string name="b_unidad_facturacion">Unidad Facturacion</string>
     <string name="title_activity_datos_utiles">DatosUtiles</string>
-    <string name="menu_lugares_de_pago">Lugares\nde pago</string>
-    <string name="menu_oficinas_comerciales">Oficinas\ncomerciales</string>
-    <string name="menu_datos_de_contacto">Datos de\ncontacto</string>
+    <string name="menu_lugares_de_pago">Lugares pago</string>
+    <string name="menu_oficinas_comerciales">Oficinas</string>
+    <string name="menu_datos_de_contacto">Contacto</string>
+    <string name="tv_error">ERROR</string>
 </resources>

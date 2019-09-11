@@ -22,6 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.Callable;
 
 /**
  * EN ESTA CLASE UTIL VAMOS A IR CREANDO LAS CONSTANTES O FUNCIONES QUE NOS SIRVAN PARA
@@ -37,50 +38,12 @@ public class Util {
 //    public static final String USER = "c1370466_consu";
 //    public static final String CLAVE = "Consulta963";
     public static final String PUERTO = "3306";
-    public static final int ASYNCTASK_INSPECCION = 13;
-    public static final int ASYNCTASK_PRESION = 6;
     public static final int EXITOSO = 1;
     public static final int ERROR = 0;
-    public static final int BANDERA_ALTA = 1;
-    public static final int BANDERA_BAJA = 0;
-    public static final int PRIMER_INICIO_MODULO = 0;
-    public static final int SEGUNDO_INICIO_MODULO = 1;
-    public static final int INSERTAR_PUNTO = 1;
-    public static final int ACTUALIZAR_PUNTO = 2;
-    public static final int ESTANDAR_MEDICION = 6;
-    public static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-    public static final String ID_PUNTO_PRESION_SHARED_PREFERENCE = "id_punto_presion";
-    public static final String USUARIO_PUNTO_PRESION_SHARED_PREFERENCE = "id_usuario";
-    public static final String ULTIMA_LATITUD = "latitud";
-    public static final String ULTIMA_LONGITUD = "longitud";
-    public static final String LATITUD_INSPECCION = "latitud_inspeccion";
-    public static final String LONGITUD_INSPECCION = "longitud_inspeccion";
-    public static final String CIRCUITO_USUARIO = "circuito_usuario";
-    public static final String TIPO_MAPA = "id_tipo_punto";
-    public static final String POSICION_SELECCIONADA = "posicion_seleccionada_spinner";
-    public static final String SPINNER_TIPO_UNIDAD = "tipo_unidad";
-    public static final String SPINNER_TIPO_UNIDAD2 = "tipo_unidad2";
-    public static final String SPINNER_BARRIO_RELEVAMIENTO = "barrio_relevamiento";
-    public static final int MAPA_RECORRIDO = 1;
-    public static final int MAPA_CLIENTES = 2;
-    public static final int MAXIMO_CIRCUITO = 3;
     private static final int MAXIMA_MEDICION = 20;
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String font_primary_path = "font/font_primary.ttf";
     private static final String font_primary_bold_path = "font/font_primary_bold.ttf";
-    /**
-     * A LATITUD Y LONGITUD LAS DEFINO COMO STRINGS PARA PODER USARLAS COMO SHARED PREFERENCES
-     * DESPUES LAS PARSEO A DOUBLE EN MAPACTIVITY
-     **/
-    public static final String LATITUD_LA_RIOJA = "-29.4126811";
-    public static final String LONGITUD_LA_RIOJA = "-66.8576855";
-    // location updates interval - 10sec
-    public static final long UPDATE_INTERVAL_IN_MILLISECONDS = 10000;
-    // fastest updates interval - 5 sec
-    // location updates will be received if another app is requesting the locations
-    // than your app can handle
-    public static final long FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS = 5000;
-    public static final int REQUEST_CHECK_SETTINGS = 100;
 
     public static void abrirActivity(Activity a, Class destino) {
         Intent intent = new Intent(a, destino);
@@ -123,23 +86,6 @@ public class Util {
         Log.e("MOSTRARMENSAJE:::", mensaje);
     }
 
-
-//    /**
-//     * Shows a {@link Toast} on the UI thread.
-//     *
-//     * @param text The message to show
-//     */
-//    public static void showToast(Activity activity, String text) {
-//        if (activity != null) {
-//            activity.runOnUiThread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }
-//    }
-
     public static void mostrarMensajeLog(Context c, String mensaje) {
         Log.e("MOSTRARMENSAJE:::", mensaje);
     }
@@ -172,13 +118,6 @@ public class Util {
             return ERROR;
         }
     }
-
-//    public static void logOut(Activity a) {
-//        UsuarioControlador usuarioControlador = new UsuarioControlador();
-//        if (usuarioControlador.eliminarUsuario(a) == EXITOSO) {
-//            abrirActivity(a, LoginActivity.class);
-//        }
-//    }
 
     public static void setPrimaryFont(Context a, TextView tv) {
         Typeface TF = Typeface.createFromAsset(a.getAssets(), font_primary_path);
@@ -240,115 +179,6 @@ public class Util {
         return settings.getString(nombreDato, defaultValue);
     }
 
-//    public static void showDialog(final Activity a, int dialog, String mensajeSI, Callable<Void> methodParam) {
-//        // get prompts.xml view
-//        LayoutInflater layoutInflater = LayoutInflater.from(a);
-//        View promptView = layoutInflater.inflate(dialog, null);
-//        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
-//        alertDialogBuilder.setView(promptView);
-//        // setup a dialog window
-//        alertDialogBuilder.setCancelable(false)
-//                .setPositiveButton(mensajeSI, (dialog1, id) -> {
-//                    try {
-//                        methodParam.call();
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                })
-//                .setNegativeButton("Cancelar", (dialog2, id) -> dialog2.cancel());
-//
-//        // create an alert dialog
-//        AlertDialog alert = alertDialogBuilder.create();
-//        alert.show();
-//    }
-
-//    public static void showDialog(final Activity a, int dialog, String mensajeSI, Callable<Void> methodAcept, Callable<Void> methodCancel) {
-//        // get prompts.xml view
-//        LayoutInflater layoutInflater = LayoutInflater.from(a);
-//        View promptView = layoutInflater.inflate(dialog, null);
-//        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
-//        alertDialogBuilder.setView(promptView);
-//        // setup a dialog window
-//        alertDialogBuilder.setCancelable(false)
-//                .setPositiveButton(mensajeSI, (dialog1, id) -> {
-//                    try {
-//                        methodAcept.call();
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                })
-//                .setNegativeButton("Cancelar", (dialog2, id) -> {
-//
-//                    try {
-//                        methodCancel.call();
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                    dialog2.cancel();
-//                });
-//
-//        // create an alert dialog
-//        AlertDialog alert = alertDialogBuilder.create();
-//        alert.show();
-//    }
-//
-//    public static void showStandarDialog(final Activity a,
-//                                         String titulo,
-//                                         View view,
-//                                         String mensajeSI,
-//                                         Callable<Void> methodAccept) {
-//        AlertDialog dialog = new AlertDialog.Builder(a)
-//                .setTitle(titulo)
-//                //.setMessage("Seleccione el circuito")
-//                .setView(view)
-//                .setPositiveButton(mensajeSI, (dialog1, which) -> {
-//                    try {
-//                        methodAccept.call();
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                })
-//                .setNegativeButton("Cancelar", null)
-//                .create();
-//        dialog.show();
-//    }
-//
-//    public static void cargarSpinner(Spinner spinner,
-//                                     Activity a,
-//                                     int dato,
-//                                     List<String> labels,
-//                                     Callable<Void> methodAcept,
-//                                     Callable<Void> methodCancel) {
-//        spinner.setBackgroundResource(R.drawable.sp_redondo);
-//        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(a,
-//                android.R.layout.simple_spinner_item, labels);
-//        spinnerAdapter
-//                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(spinnerAdapter);
-//        spinner.setSelection(dato - 1);
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                setPreference(a, POSICION_SELECCIONADA, i + 1);
-//                try {
-//                    methodAcept.call();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                try {
-//                    methodCancel.call();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//    }
-
-
     public static byte[] comprimirImagen(byte[] bytes) {
         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -361,5 +191,19 @@ public class Util {
         Matrix matrix = new Matrix();
         matrix.postRotate(angulo);
         return Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
+    }
+
+    public static void checkConnection(Activity a, Callable<Void> method) {
+        InternetDetector internetDetector;
+        internetDetector = new InternetDetector(a);
+        if (!internetDetector.checkMobileInternetConn()) {
+            mostrarMensaje(a, "No hay conexion de red disponible.");
+        } else {
+            try {
+                method.call();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

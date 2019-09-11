@@ -3,14 +3,17 @@
 
     <item
         android:id="@+id/lugares_pago"
+        android:icon="@drawable/ic_lugares_primary_dark_24dp"
         android:title="@string/menu_lugares_de_pago" />
 
     <item
         android:id="@+id/oficinas_comerciales"
+        android:icon="@drawable/ic_oficinas_primary_dark_24dp"
         android:title="@string/menu_oficinas_comerciales" />
 
     <item
         android:id="@+id/datos_contacto"
+        android:icon="@drawable/ic_datos_contacto_primary_dark_24dp"
         android:title="@string/menu_datos_de_contacto" />
 
 </menu>

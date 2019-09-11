@@ -6,6 +6,8 @@ import android.widget.Button;
 
 import com.desarrollo.kuky.aguasriojanas.R;
 
+import controlador.InicioControlador;
+
 import static util.Util.abrirActivity;
 import static util.Util.setPrimaryFontBold;
 
@@ -30,7 +32,8 @@ public class Inicio extends AppCompatActivity {
         setPrimaryFontBold(this, bDatosUtiles);
         /**********************************************************/
         bDatosUtiles.setOnClickListener(v -> {
-            abrirActivity(this, DatosUtiles.class);
+            InicioControlador inicioControlador = new InicioControlador();
+            inicioControlador.abrirDatosUtiles(this);
         });
     }
 }

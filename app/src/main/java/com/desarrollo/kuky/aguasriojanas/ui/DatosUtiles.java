@@ -5,13 +5,33 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.desarrollo.kuky.aguasriojanas.ui.DatosUtilesFragments.Contacto;
+
+import util.Util;
+
+import static util.Util.abrirActivity;
 
 public class DatosUtiles extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    public static Contacto contactoFragment;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_datos_utiles);
+
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        contactoFragment = new Contacto();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        abrirActivity(this, Inicio.class);
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -20,27 +40,18 @@ public class DatosUtiles extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.lugares_pago:
-                    mTextMessage.setText("Lugares pago");
+
                     return true;
                 case R.id.oficinas_comerciales:
-                    mTextMessage.setText("Oficinas comerciales");
+
                     return true;
                 case R.id.datos_contacto:
-                    mTextMessage.setText("Datos de contacto");
+                    if (!contactoFragment.isVisible()) {
+                        Util.abrirFragmento(DatosUtiles.this, R.id.rlDatosUtiles, contactoFragment);
+                    }
                     return true;
             }
             return false;
         }
     };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_datos_utiles);
-
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-    }
-
 }
