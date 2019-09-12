@@ -1,12 +1,19 @@
 package com.desarrollo.kuky.aguasriojanas.ui.DatosUtilesFragments;
 
+import android.Manifest;
 import android.app.Fragment;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
 
@@ -17,7 +24,10 @@ import static util.Util.setPrimaryFontBold;
 
 public class Contacto extends Fragment {
 
-    TextView tvTelefono, tvWeb, tvCorreo;
+    Button bTelefono, bWeb, bCorreo;
+    DatoContacto datoContacto = new DatoContacto();
+    DatosUtilesControlador datosUtilesControlador = new DatosUtilesControlador();
+    final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 0;
 
     public Contacto() {
         // Required empty public constructor
@@ -45,20 +55,65 @@ public class Contacto extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        tvTelefono = getActivity().findViewById(R.id.tvTelefono);
-        tvCorreo = getActivity().findViewById(R.id.tvCorreo);
-        tvWeb = getActivity().findViewById(R.id.tvWeb);
+        bTelefono = getActivity().findViewById(R.id.tvTelefono);
+        bCorreo = getActivity().findViewById(R.id.tvCorreo);
+        bWeb = getActivity().findViewById(R.id.tvWeb);
         /*** SETEAMOS TYPEFACES ***********************************/
-        setPrimaryFontBold(getActivity(), tvCorreo);
-        setPrimaryFontBold(getActivity(), tvWeb);
-        setPrimaryFontBold(getActivity(), tvTelefono);
+        setPrimaryFontBold(getActivity(), bCorreo);
+        setPrimaryFontBold(getActivity(), bWeb);
+        setPrimaryFontBold(getActivity(), bTelefono);
         /**********************************************************/
-        DatoContacto datoContacto = new DatoContacto();
-        DatosUtilesControlador datosUtilesControlador = new DatosUtilesControlador();
         datoContacto = datosUtilesControlador.getDatosContacto(getActivity());
-        tvTelefono.setText(datoContacto.getTelefono());
-        tvWeb.setText(datoContacto.getWeb());
-        tvCorreo.setText(datoContacto.getCorreo());
+        bTelefono.setText(datoContacto.getTelefono());
+        bWeb.setText(datoContacto.getWeb());
+        bCorreo.setText(datoContacto.getCorreo());
+        ////////////////////////////////////////////////////////////
+        bTelefono.setOnClickListener(v -> {
+            solicitarPermisosLlamada();
+        });
 
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_CALL_PHONE: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    callPhone();
+                } else {
+                    solicitarPermisosLlamada();
+                    System.out.println("El usuario ha rechazado el permiso");
+                }
+                return;
+            }
+        }
+    }
+
+    public void callPhone() {
+        Intent i = new Intent(android.content.Intent.ACTION_CALL,
+                Uri.parse("tel:" + datoContacto.getTelefono()));
+        startActivity(i);
+    }
+
+    private void solicitarPermisosLlamada() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (ContextCompat.checkSelfPermission(getActivity(),
+                    Manifest.permission.CALL_PHONE)
+                    != PackageManager.PERMISSION_GRANTED) {
+//                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+//                        Manifest.permission.CALL_PHONE)) {
+                /** ACA DEBERIA MOSTRAR UN DIALOGO QUE EXPLIQUE EL PORQUE DEL PERMISO*/
+//                } else {
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.CALL_PHONE},
+                        MY_PERMISSIONS_REQUEST_CALL_PHONE);
+//                }
+            } else {
+                callPhone();
+            }
+        }
     }
 }
