@@ -20,6 +20,7 @@ import com.desarrollo.kuky.aguasriojanas.R;
 import controlador.DatosUtilesControlador;
 import objeto.DatoContacto;
 
+import static util.Util.mostrarMensaje;
 import static util.Util.setPrimaryFontBold;
 
 public class Contacto extends Fragment {
@@ -70,6 +71,15 @@ public class Contacto extends Fragment {
         ////////////////////////////////////////////////////////////
         bTelefono.setOnClickListener(v -> {
             solicitarPermisosLlamada();
+        });
+        bCorreo.setOnClickListener(v -> {
+            try {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", datoContacto.getCorreo(), null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Consulta");
+                startActivity(Intent.createChooser(emailIntent, "Enviar mail"));
+            } catch (Exception e) {
+                mostrarMensaje(getActivity(), e.toString());
+            }
         });
 
 

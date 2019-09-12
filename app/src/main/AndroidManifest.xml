@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ui.Inicio">
+        <activity
+            android:name=".ui.Inicio"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -23,7 +25,8 @@
         </activity>
         <activity
             android:name=".ui.DatosUtiles"
-            android:label="@string/title_activity_datos_utiles" />
+            android:label="@string/title_activity_datos_utiles"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
