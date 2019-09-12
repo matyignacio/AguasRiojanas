@@ -36,6 +36,7 @@ public class BaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         sqLiteDatabase.execSQL(sqlTablaDatosContacto);
+        sqLiteDatabase.execSQL(sqlTablaOficinasComerciales);
     }
 
     @Override
@@ -55,8 +56,20 @@ public class BaseHelper extends SQLiteOpenHelper {
             "  PRIMARY KEY (id)" +
             ") ";
 
+    private String sqlTablaOficinasComerciales = "CREATE TABLE IF NOT EXISTS oficinas_comerciales (" +
+            "  id int(11) NOT NULL," +
+            "  localidad varchar(30) NOT NULL," +
+            "  direccion varchar(45) NOT NULL," +
+            "  horario_desde varchar(15) NOT NULL," +
+            "  horario_hasta varchar(15) NOT NULL," +
+            "  PRIMARY KEY (id)" +
+            ") ";
+
     public String getSqlTablaDatosContacto() {
         return sqlTablaDatosContacto;
     }
 
+    public String getSqlTablaOficinasComerciales() {
+        return sqlTablaOficinasComerciales;
+    }
 }

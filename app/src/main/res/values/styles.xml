@@ -32,10 +32,11 @@
     </style>
 
     <style name="tv_primary">
+        <item name="android:textColor">#000000</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_marginTop">15dp</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:typeface">sans</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_centerHorizontal">true</item>
@@ -47,17 +48,17 @@
         <item name="android:gravity">left</item>
     </style>
 
+    <style name="tv_primary_bold_left" parent="tv_primary">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left</item>
+    </style>
+
     <style name="tv_primary_mini" parent="tv_primary">
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:ems">8</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">left</item>
         <item name="android:layout_marginTop">0dp</item>
-    </style>
-
-    <style name="tv_primary_bold_left" parent="tv_primary">
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">left</item>
     </style>
 
     <style name="tv_primary_bold_center" parent="tv_primary_bold_left">
@@ -75,7 +76,7 @@
     </style>
 
     <style name="et_primary_mini" parent="et_primary">
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="et_primary_bold" parent="et_primary">
@@ -88,7 +89,7 @@
         <item name="android:layout_marginTop">15dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:ems">12</item>
         <item name="android:typeface">sans</item>
@@ -99,7 +100,7 @@
     </style>
 
     <style name="b_primary_mini" parent="b_primary">
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:ems">20</item>
     </style>
 

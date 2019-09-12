@@ -3,15 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/layout_primary"
     tools:context=".ui.DatosUtiles">
-
-    <RelativeLayout
-        android:id="@+id/rlDatosUtiles"
-        style="@style/layout_primary">
-
-    </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

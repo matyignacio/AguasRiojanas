@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 
@@ -15,8 +14,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import objeto.DatoContacto;
 
 import static util.Errores.ERROR_DATOS_UTILES;
 import static util.Errores.ERROR_PREFERENCE;
@@ -86,7 +83,7 @@ public class InicioControlador {
         protected void onPostExecute(String s) {
             pDialog.dismiss();
             if (s.equals("")) {
-                abrirActivity(a, DatosUtiles.class);
+                getOficinasComerciales(a);
             } else {
                 setPreference(a, ERROR_PREFERENCE, ERROR_DATOS_UTILES);
                 mostrarMensajeLog(a, ERROR_DATOS_UTILES);
@@ -100,6 +97,84 @@ public class InicioControlador {
             try {
                 AbrirDatosUtilesTask abrirDatosUtilesTask = new AbrirDatosUtilesTask(a);
                 abrirDatosUtilesTask.execute();
+            } catch (Exception e) {
+                mostrarMensaje(a, e.toString());
+            }
+            return null;
+        });
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private class GetOficinasComercialesTask extends AsyncTask<String, Float, String> {
+        String RETURN = "ERROR " + TAG;
+        Activity a;
+
+        @Override
+        protected void onPreExecute() {
+            pDialog = new ProgressDialog(a);
+            pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            pDialog.setMessage("Cargando datos utiles...");
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        GetOficinasComercialesTask(Activity a) {
+            this.a = a;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            Connection conn;
+            PreparedStatement ps;
+            ResultSet rs;
+            try {
+                conn = Conexion.GetConnection();
+                String consultaSql = "SELECT * FROM oficinas_comerciales";
+                ps = conn.prepareStatement(consultaSql);
+                ps.execute();
+                rs = ps.getResultSet();
+                SQLiteDatabase db = BaseHelper.getInstance(a).getWritableDatabase();
+                db.delete("oficinas_comerciales", null, null);
+                while (rs.next()) {
+                    ContentValues values = new ContentValues();
+                    values.put("id", rs.getInt(1));
+                    values.put("localidad", rs.getString(2));
+                    values.put("direccion", rs.getString(3));
+                    values.put("horario_desde", rs.getString(4));
+                    values.put("horario_hasta", rs.getString(5));
+                    if (db.insert("oficinas_comerciales", null, values) > 0) {
+                        RETURN = "";
+                    }
+                }
+                db.close();
+                rs.close();
+                ps.close();
+                conn.close();
+                return RETURN;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return e.toString();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            pDialog.dismiss();
+            if (s.equals("")) {
+                abrirActivity(a, DatosUtiles.class);
+            } else {
+                setPreference(a, ERROR_PREFERENCE, ERROR_DATOS_UTILES);
+                mostrarMensajeLog(a, ERROR_DATOS_UTILES);
+                abrirActivity(a, ErrorActivity.class);
+            }
+        }
+    }
+
+    public void getOficinasComerciales(Activity a) {
+        checkConnection(a, () -> {
+            try {
+                GetOficinasComercialesTask getOficinasComercialesTask = new GetOficinasComercialesTask(a);
+                getOficinasComercialesTask.execute();
             } catch (Exception e) {
                 mostrarMensaje(a, e.toString());
             }
