@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "818679727436",
+    "firebase_url": "https://aguasriojanas-f124a.firebaseio.com",
+    "project_id": "aguasriojanas-f124a",
+    "storage_bucket": "aguasriojanas-f124a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818679727436:android:3fc28cd467232c5e3e3be9",
+        "android_client_info": {
+          "package_name": "com.desarrollo.kuky.aguasriojanas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818679727436-i1s81d05ok1mccpfn2a7uklit7ujtjrh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.desarrollo.kuky.aguasriojanas",
+            "certificate_hash": "140370453f31eb91271053f57c8bcef81b2bf151"
+          }
+        },
+        {
+          "client_id": "818679727436-146k308q747kpqvb9dlva46pnd48c15k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5C6_WFPwe_nF1DtG6nYi2CYmQNRks5as"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818679727436-146k308q747kpqvb9dlva46pnd48c15k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

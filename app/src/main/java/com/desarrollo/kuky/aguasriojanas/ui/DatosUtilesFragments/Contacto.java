@@ -7,8 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +16,8 @@ import android.widget.RelativeLayout;
 import com.desarrollo.kuky.aguasriojanas.R;
 import com.desarrollo.kuky.aguasriojanas.ui.WebActivity;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import controlador.DatosUtilesControlador;
 import objeto.DatoContacto;
 

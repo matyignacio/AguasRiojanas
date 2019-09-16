@@ -1,10 +1,11 @@
 package com.desarrollo.kuky.aguasriojanas.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import static util.Errores.ERROR_PREFERENCE;
 import static util.Errores.MENSAJE_ERROR;

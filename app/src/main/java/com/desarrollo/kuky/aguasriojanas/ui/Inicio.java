@@ -1,14 +1,13 @@
 package com.desarrollo.kuky.aguasriojanas.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.desarrollo.kuky.aguasriojanas.R;
 
+import androidx.appcompat.app.AppCompatActivity;
 import controlador.InicioControlador;
 
-import static util.Util.abrirActivity;
 import static util.Util.setPrimaryFontBold;
 
 public class Inicio extends AppCompatActivity {

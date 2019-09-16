@@ -10,4 +10,6 @@
     <string name="menu_oficinas_comerciales">Oficinas</string>
     <string name="menu_datos_de_contacto">Contacto</string>
     <string name="tv_error">ERROR</string>
+    <string name="emailpassword_status_fmt">Email User: %1$s (verified: %2$b)</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
 </resources>

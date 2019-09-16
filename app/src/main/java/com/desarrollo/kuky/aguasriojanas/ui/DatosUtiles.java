@@ -1,16 +1,16 @@
 package com.desarrollo.kuky.aguasriojanas.ui;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.desarrollo.kuky.aguasriojanas.R;
 import com.desarrollo.kuky.aguasriojanas.ui.DatosUtilesFragments.Contacto;
 import com.desarrollo.kuky.aguasriojanas.ui.DatosUtilesFragments.LugaresPago;
 import com.desarrollo.kuky.aguasriojanas.ui.DatosUtilesFragments.OficinasComerciales;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import util.Util;
 
 import static util.Util.abrirActivity;
