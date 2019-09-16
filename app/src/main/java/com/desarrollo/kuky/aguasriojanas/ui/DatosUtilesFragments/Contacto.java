@@ -16,10 +16,12 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.desarrollo.kuky.aguasriojanas.ui.WebActivity;
 
 import controlador.DatosUtilesControlador;
 import objeto.DatoContacto;
 
+import static util.Util.abrirActivity;
 import static util.Util.mostrarMensaje;
 import static util.Util.setPrimaryFontBold;
 
@@ -71,6 +73,9 @@ public class Contacto extends Fragment {
         ////////////////////////////////////////////////////////////
         bTelefono.setOnClickListener(v -> {
             solicitarPermisosLlamada();
+        });
+        bWeb.setOnClickListener(v -> {
+            abrirActivity(getActivity(), WebActivity.class);
         });
         bCorreo.setOnClickListener(v -> {
             try {

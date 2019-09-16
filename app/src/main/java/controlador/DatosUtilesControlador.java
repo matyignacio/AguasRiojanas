@@ -7,9 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 import objeto.DatoContacto;
+import objeto.LugarPago;
 import objeto.OficinaComercial;
 
 public class DatosUtilesControlador {
+    private static final String TAG = DatosUtilesControlador.class.getSimpleName();
 
     public DatoContacto getDatosContacto(Activity a) {
         DatoContacto datoContacto = new DatoContacto();
@@ -42,5 +44,21 @@ public class DatosUtilesControlador {
         c.close();
         db.close();
         return oficinas;
+    }
+
+    public ArrayList<LugarPago> getLugaresPago(Activity a) {
+        ArrayList<LugarPago> lugares = new ArrayList<>();
+        SQLiteDatabase db = BaseHelper.getInstance(a).getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT titulo, descripcion" +
+                " FROM lugares_pago ", null);
+        while (c.moveToNext()) {
+            LugarPago lugarPago = new LugarPago();
+            lugarPago.setTitulo(c.getString(0));
+            lugarPago.setDescripcion(c.getString(1));
+            lugares.add(lugarPago);
+        }
+        c.close();
+        db.close();
+        return lugares;
     }
 }
