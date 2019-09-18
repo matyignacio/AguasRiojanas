@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.desarrollo.kuky.aguasriojanas.ui.Login;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import androidx.annotation.NonNull;
+
+import static util.Util.abrirActivity;
 
 /**
  * Demonstrate Firebase Authentication using a Google ID Token.
@@ -69,6 +72,12 @@ public class GoogleSignInActivity extends BaseActivity implements
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        abrirActivity(this, Login.class);
     }
 
     // [START on_start_check_user]
@@ -174,7 +183,7 @@ public class GoogleSignInActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-            mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
+            mStatusTextView.setText(getString(R.string.google_status_fmt, user.getDisplayName() + " " + user.getPhoneNumber()));
             mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
             findViewById(R.id.signInButton).setVisibility(View.GONE);

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.desarrollo.kuky.aguasriojanas.ui.Login;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -17,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
+
+import static util.Util.abrirActivity;
 
 public class EmailPasswordActivity extends BaseActivity implements
         View.OnClickListener {
@@ -55,6 +58,12 @@ public class EmailPasswordActivity extends BaseActivity implements
         // [END initialize_auth]
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        abrirActivity(this, Login.class);
+    }
+
     // [START on_start_check_user]
     @Override
     public void onStart() {
@@ -86,7 +95,9 @@ public class EmailPasswordActivity extends BaseActivity implements
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
+                            Toast.makeText(EmailPasswordActivity.this, "Ocurrio un error al crear la cuenta.",
+                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EmailPasswordActivity.this, "Quizas este correo ya tiene una cuenta creada.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -120,7 +131,9 @@ public class EmailPasswordActivity extends BaseActivity implements
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
+                            Toast.makeText(EmailPasswordActivity.this, "Ocurrio un error al iniciar sesion.",
+                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EmailPasswordActivity.this, "Revise correo y clave.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -177,7 +190,7 @@ public class EmailPasswordActivity extends BaseActivity implements
 
         String email = mEmailField.getText().toString();
         if (TextUtils.isEmpty(email)) {
-            mEmailField.setError("Required.");
+            mEmailField.setError("Necesario.");
             valid = false;
         } else {
             mEmailField.setError(null);
@@ -185,7 +198,7 @@ public class EmailPasswordActivity extends BaseActivity implements
 
         String password = mPasswordField.getText().toString();
         if (TextUtils.isEmpty(password)) {
-            mPasswordField.setError("Required.");
+            mPasswordField.setError("Necesario.");
             valid = false;
         } else {
             mPasswordField.setError(null);

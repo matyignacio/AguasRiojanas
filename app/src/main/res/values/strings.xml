@@ -14,4 +14,8 @@
     <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="google_status_fmt">Google User: %s</string>
     <string name="signed_out">Signed Out</string>
+    <string name="tv_aguas_riojanas_sapem">Aguas Riojanas SAPEM</string>
+    <string name="tv_ingresar">Ingresar</string>
+    <string name="b_iniciar_sesion_con_correo">Acceder</string>
+    <string name="title_activity_emailpassword">Crear Cuenta / Iniciar Sesion</string>
 </resources>
