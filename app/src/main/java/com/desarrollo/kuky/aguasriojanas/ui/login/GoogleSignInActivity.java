@@ -30,6 +30,10 @@ import static util.Util.abrirActivity;
 /**
  * Demonstrate Firebase Authentication using a Google ID Token.
  */
+
+/**
+ * A ESTA ACTIVITY NO LA USO MAS EN EL PROYECTO PERO LA DEJO DE EJEMPLO.
+ */
 public class GoogleSignInActivity extends BaseActivity implements
         View.OnClickListener {
 

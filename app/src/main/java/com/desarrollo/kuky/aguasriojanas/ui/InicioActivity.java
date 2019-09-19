@@ -2,18 +2,28 @@ package com.desarrollo.kuky.aguasriojanas.ui;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import controlador.InicioControlador;
+import util.Util;
 
+import static com.desarrollo.kuky.aguasriojanas.ui.LoginActivity.mAuth;
+import static com.desarrollo.kuky.aguasriojanas.ui.LoginActivity.mGoogleSignInClient;
 import static util.Util.abrirActivity;
 import static util.Util.setPrimaryFontBold;
 
@@ -37,6 +47,9 @@ public class InicioActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        TextView subTitle = headerView.findViewById(R.id.tvUsuarioNavBar);
+        subTitle.setText(Objects.requireNonNull(LoginActivity.mAuth.getCurrentUser()).getDisplayName());
 
         bUnidadFacturacion = findViewById(R.id.bUnidadesFacturacion);
         bEstadoCuenta = findViewById(R.id.bEstadoCuenta);
@@ -73,8 +86,26 @@ public class InicioActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_close) {
-            LoginActivity.mAuth.signOut();
-            abrirActivity(this, LoginActivity.class);
+            Util.showDialog(this,
+                    R.layout.dialog_cerrar_sesion,
+                    "Si, cerrar",
+                    () -> {
+                        mAuth.signOut();
+                        try {
+                            // Google revoke access
+                            mGoogleSignInClient.revokeAccess().addOnCompleteListener(this,
+                                    new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                        }
+                                    });
+                        } catch (Exception e) {
+                        }
+                        abrirActivity(this, LoginActivity.class);
+                        return null;
+                    }
+            );
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

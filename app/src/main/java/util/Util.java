@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,6 +28,8 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.Callable;
+
+import androidx.appcompat.app.AlertDialog;
 
 /**
  * EN ESTA CLASE UTIL VAMOS A IR CREANDO LAS CONSTANTES O FUNCIONES QUE NOS SIRVAN PARA
@@ -201,7 +204,6 @@ public class Util {
         }
     }
 
-
     public static void customizeGooglePlusButton(SignInButton signInButton, String mensaje, Context c) {
         for (int i = 0; i < signInButton.getChildCount(); i++) {
             View v = signInButton.getChildAt(i);
@@ -231,5 +233,27 @@ public class Util {
                 return;
             }
         }
+    }
+
+    public static void showDialog(final Activity a, int dialog, String mensajeSI, Callable<Void> methodParam) {
+        // get prompts.xml view
+        LayoutInflater layoutInflater = LayoutInflater.from(a);
+        View promptView = layoutInflater.inflate(dialog, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
+        alertDialogBuilder.setView(promptView);
+        // setup a dialog window
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton(mensajeSI, (dialog1, id) -> {
+                    try {
+                        methodParam.call();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                })
+                .setNegativeButton("Cancelar", (dialog2, id) -> dialog2.cancel());
+
+        // create an alert dialog
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
 }
