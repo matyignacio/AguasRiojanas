@@ -16,6 +16,13 @@
     <string name="signed_out">Signed Out</string>
     <string name="tv_aguas_riojanas_sapem">Aguas Riojanas SAPEM</string>
     <string name="tv_ingresar">Ingresar</string>
-    <string name="b_iniciar_sesion_con_correo">Acceder</string>
+    <string name="b_iniciar_sesion_con_correo">Acceder con correo</string>
     <string name="title_activity_emailpassword">Crear Cuenta / Iniciar Sesion</string>
+    <string name="title_activity_inicio">Aguas Riojanas</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>

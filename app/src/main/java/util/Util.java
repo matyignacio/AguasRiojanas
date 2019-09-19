@@ -12,11 +12,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.desarrollo.kuky.aguasriojanas.R;
+import com.google.android.gms.common.SignInButton;
 
 import java.io.ByteArrayOutputStream;
 import java.text.DateFormat;
@@ -109,16 +113,6 @@ public class Util {
         return EXITOSO;
     }
 
-    public static int validarPresion(Activity a, EditText etPresion) {
-        if (Float.parseFloat(etPresion.getText().toString()) <= MAXIMA_MEDICION &&
-                Float.parseFloat(etPresion.getText().toString()) > 0) {
-            return EXITOSO;
-        } else {
-            mostrarMensaje(a, "La presion debe ser entre 0 mca y 20 mca");
-            return ERROR;
-        }
-    }
-
     public static void setPrimaryFont(Context a, TextView tv) {
         Typeface TF = Typeface.createFromAsset(a.getAssets(), font_primary_path);
         tv.setTypeface(TF);
@@ -203,6 +197,38 @@ public class Util {
                 method.call();
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void customizeGooglePlusButton(SignInButton signInButton, String mensaje, Context c) {
+        for (int i = 0; i < signInButton.getChildCount(); i++) {
+            View v = signInButton.getChildAt(i);
+
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setText(mensaje);
+                tv.setTextColor(c.getResources().getColor(R.color.colorPrimaryDark));
+                tv.setBackgroundResource(R.color.textColorPrimaryAppBar);
+                tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_google, 0, 0, 0);
+                tv.setAllCaps(true); //mayusculiza el texto
+                return;
+            }
+        }
+    }
+
+    public static void customizeGooglePlusButton(SignInButton signInButton, String mensaje) {
+        for (int i = 0; i < signInButton.getChildCount(); i++) {
+            View v = signInButton.getChildAt(i);
+
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setText(mensaje);
+                tv.setBackgroundResource(R.color.colorAccent);
+                tv.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_email_white_24dp, 0, 0, 0);
+                tv.setAllCaps(true); //mayusculiza el texto
+                return;
             }
         }
     }

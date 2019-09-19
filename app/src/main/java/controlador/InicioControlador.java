@@ -7,7 +7,7 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 
-import com.desarrollo.kuky.aguasriojanas.ui.DatosUtiles;
+import com.desarrollo.kuky.aguasriojanas.ui.DatosUtilesActivity;
 import com.desarrollo.kuky.aguasriojanas.ui.ErrorActivity;
 
 import java.sql.Connection;
@@ -237,7 +237,7 @@ public class InicioControlador {
         protected void onPostExecute(String s) {
             pDialog.dismiss();
             if (s.equals("")) {
-                abrirActivity(a, DatosUtiles.class);
+                abrirActivity(a, DatosUtilesActivity.class);
             } else {
                 setPreference(a, ERROR_PREFERENCE, ERROR_DATOS_UTILES);
                 mostrarMensajeLog(a, ERROR_DATOS_UTILES);

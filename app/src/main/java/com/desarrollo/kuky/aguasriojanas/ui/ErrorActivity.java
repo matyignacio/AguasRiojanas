@@ -26,6 +26,6 @@ public class ErrorActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        abrirActivity(this, Inicio.class);
+        abrirActivity(this, InicioActivity.class);
     }
 }

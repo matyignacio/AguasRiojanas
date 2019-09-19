@@ -17,10 +17,11 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.Login"
+            android:name=".ui.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,13 +33,14 @@
             android:name=".ui.login.GoogleSignInActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.Inicio"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.DatosUtiles"
+            android:name=".ui.DatosUtilesActivity"
             android:label="@string/title_activity_datos_utiles"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.WebActivity" />
+        <activity
+            android:name=".ui.InicioActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

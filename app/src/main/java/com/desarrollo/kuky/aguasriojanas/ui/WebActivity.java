@@ -36,6 +36,6 @@ public class WebActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        abrirActivity(this, DatosUtiles.class);
+        abrirActivity(this, DatosUtilesActivity.class);
     }
 }

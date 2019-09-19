@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout_primary"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.InicioActivity"
+    tools:showIn="@layout/app_bar_inicio">
+
+    <Button
+        android:id="@+id/bUnidadesFacturacion"
+        style="@style/b_primary"
+        android:layout_height="70dp"
+        android:drawableStart="@drawable/ic_unidad_white_24dp"
+        android:text="@string/b_unidad_facturacion" />
+
+    <Button
+        android:id="@+id/bEstadoCuenta"
+        style="@style/b_primary"
+        android:layout_height="70dp"
+        android:layout_below="@id/bUnidadesFacturacion"
+        android:drawableStart="@drawable/ic_settings_white_24dp"
+        android:text="@string/b_estado_de_cuenta" />
+
+    <Button
+        android:id="@+id/bAsistenciaTecnica"
+        style="@style/b_primary"
+        android:layout_height="70dp"
+        android:layout_below="@id/bEstadoCuenta"
+        android:drawableStart="@drawable/ic_contact_phone_white_24dp"
+        android:text="@string/b_asistencia_tecnica" />
+
+    <Button
+        android:id="@+id/bNotificaciones"
+        style="@style/b_primary"
+        android:layout_height="70dp"
+        android:layout_below="@id/bAsistenciaTecnica"
+        android:drawableStart="@drawable/ic_notifications_active_white_24dp"
+        android:text="@string/b_notificaciones" />
+
+    <Button
+        android:id="@+id/bDatosUtiles"
+        style="@style/b_primary"
+        android:layout_height="70dp"
+        android:layout_below="@id/bNotificaciones"
+        android:drawableStart="@drawable/ic_phone_white_24dp"
+        android:text="@string/b_datos_utiles" />
+
+</RelativeLayout>

@@ -15,7 +15,7 @@ import util.Util;
 
 import static util.Util.abrirActivity;
 
-public class DatosUtiles extends AppCompatActivity {
+public class DatosUtilesActivity extends AppCompatActivity {
 
     Contacto contactoFragment;
     OficinasComerciales oficinasComerciales;
@@ -31,13 +31,13 @@ public class DatosUtiles extends AppCompatActivity {
         contactoFragment = new Contacto();
         oficinasComerciales = new OficinasComerciales();
         lugaresPago = new LugaresPago();
-        Util.abrirFragmento(DatosUtiles.this, R.id.container, lugaresPago);
+        Util.abrirFragmento(DatosUtilesActivity.this, R.id.container, lugaresPago);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        abrirActivity(this, Inicio.class);
+        abrirActivity(this, InicioActivity.class);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -47,24 +47,24 @@ public class DatosUtiles extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.lugares_pago:
-                    Util.cerrarFragmento(DatosUtiles.this, contactoFragment);
-                    Util.cerrarFragmento(DatosUtiles.this, oficinasComerciales);
+                    Util.cerrarFragmento(DatosUtilesActivity.this, contactoFragment);
+                    Util.cerrarFragmento(DatosUtilesActivity.this, oficinasComerciales);
                     if (!lugaresPago.isVisible()) {
-                        Util.abrirFragmento(DatosUtiles.this, R.id.container, lugaresPago);
+                        Util.abrirFragmento(DatosUtilesActivity.this, R.id.container, lugaresPago);
                     }
                     return true;
                 case R.id.oficinas_comerciales:
-                    Util.cerrarFragmento(DatosUtiles.this, contactoFragment);
-                    Util.cerrarFragmento(DatosUtiles.this, lugaresPago);
+                    Util.cerrarFragmento(DatosUtilesActivity.this, contactoFragment);
+                    Util.cerrarFragmento(DatosUtilesActivity.this, lugaresPago);
                     if (!oficinasComerciales.isVisible()) {
-                        Util.abrirFragmento(DatosUtiles.this, R.id.container, oficinasComerciales);
+                        Util.abrirFragmento(DatosUtilesActivity.this, R.id.container, oficinasComerciales);
                     }
                     return true;
                 case R.id.datos_contacto:
-                    Util.cerrarFragmento(DatosUtiles.this, oficinasComerciales);
-                    Util.cerrarFragmento(DatosUtiles.this, lugaresPago);
+                    Util.cerrarFragmento(DatosUtilesActivity.this, oficinasComerciales);
+                    Util.cerrarFragmento(DatosUtilesActivity.this, lugaresPago);
                     if (!contactoFragment.isVisible()) {
-                        Util.abrirFragmento(DatosUtiles.this, R.id.container, contactoFragment);
+                        Util.abrirFragmento(DatosUtilesActivity.this, R.id.container, contactoFragment);
                     }
                     return true;
             }

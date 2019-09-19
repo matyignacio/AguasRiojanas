@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
-import com.desarrollo.kuky.aguasriojanas.ui.Login;
+import com.desarrollo.kuky.aguasriojanas.ui.LoginActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -77,7 +77,7 @@ public class GoogleSignInActivity extends BaseActivity implements
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        abrirActivity(this, Login.class);
+        abrirActivity(this, LoginActivity.class);
     }
 
     // [START on_start_check_user]

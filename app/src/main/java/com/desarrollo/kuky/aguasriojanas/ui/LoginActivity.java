@@ -2,7 +2,6 @@ package com.desarrollo.kuky.aguasriojanas.ui;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
@@ -12,32 +11,30 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import static util.Util.abrirActivity;
-import static util.Util.setPrimaryFontBold;
+import static util.Util.customizeGooglePlusButton;
 
-public class Login extends BaseActivity implements
+public class LoginActivity extends BaseActivity implements
         View.OnClickListener {
 
-    Button bSignInEmail;
     // [START declare_auth]
-    private FirebaseAuth mAuth;
+    public static FirebaseAuth mAuth;
     // [END declare_auth]
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        bSignInEmail = findViewById(R.id.signInEmail);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
         // Button listeners
         findViewById(R.id.signInGoogle).setOnClickListener(this);
-        /*** SETEAMOS TYPEFACES ***********************************/
-        setPrimaryFontBold(this, bSignInEmail);
-        /**********************************************************/
-        bSignInEmail.setOnClickListener(v -> {
-            abrirActivity(this, EmailPasswordActivity.class);
-        });
+        findViewById(R.id.signInEmail).setOnClickListener(this);
+        /** CUSTOMIZAMOS **************************************/
+        customizeGooglePlusButton(findViewById(R.id.signInGoogle), "Acceder con Google", this);
+        customizeGooglePlusButton(findViewById(R.id.signInEmail), "Acceder con Email");
+        /******************************************************/
+
     }
 
     @Override
@@ -47,7 +44,7 @@ public class Login extends BaseActivity implements
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            abrirActivity(this, Inicio.class);
+            abrirActivity(this, InicioActivity.class);
         }
     }
 
@@ -57,5 +54,9 @@ public class Login extends BaseActivity implements
         if (i == R.id.signInGoogle) {
             abrirActivity(this, GoogleSignInActivity.class);
         }
+        if (i == R.id.signInEmail) {
+            abrirActivity(this, EmailPasswordActivity.class);
+        }
     }
+
 }

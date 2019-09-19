@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/layout_login"
-    tools:context=".ui.Login">
+    tools:context=".ui.LoginActivity">
 
     <ImageView
         android:id="@+id/icon"
@@ -21,16 +22,18 @@
         android:layout_below="@id/icon"
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="40dp" />
-
-    <Button
-        android:id="@+id/signInEmail"
-        style="@style/b_primary"
-        android:layout_width="match_parent"
-        android:layout_below="@id/signInGoogle"
-        android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:drawableStart="@drawable/ic_email_white_24dp"
-        android:text="@string/b_iniciar_sesion_con_correo" />
+        app:colorScheme="dark" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signInEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signInGoogle"
+        android:layout_alignStart="@id/signInGoogle"
+        android:layout_alignEnd="@id/signInGoogle"
+        android:layout_marginTop="15dp"
+        app:colorScheme="dark" />
+
 
 </RelativeLayout>
