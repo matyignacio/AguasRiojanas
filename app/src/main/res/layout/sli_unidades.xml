@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/background_card"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/tvTituloUnidad"
+        style="@style/tv_primary_mini"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/bEliminar"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Unidad de facturación" />
+
+    <TextView
+        android:id="@+id/tvUnidad"
+        style="@style/tv_primary_bold_left"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTituloUnidad"
+        android:layout_alignStart="@+id/tvTituloUnidad"
+        android:layout_alignEnd="@+id/tvTituloUnidad"
+        android:layout_marginTop="0dp"
+        android:text="415866" />
+
+    <TextView
+        android:id="@+id/tvTituloRazon"
+        style="@style/tv_primary_mini"
+        android:layout_below="@id/tvUnidad"
+        android:layout_alignStart="@+id/tvTituloUnidad"
+        android:layout_alignEnd="@+id/tvTituloUnidad"
+        android:text="Titular" />
+
+    <TextView
+        android:id="@+id/tvRazon"
+        style="@style/tv_primary_bold_left"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTituloRazon"
+        android:layout_alignStart="@+id/tvTituloUnidad"
+        android:layout_alignEnd="@+id/tvTituloUnidad"
+        android:layout_marginTop="0dp"
+        android:text="SANTILLAN, DOMINGO DEL VALLE" />
+
+    <TextView
+        android:id="@+id/tvTituloDireccion"
+        style="@style/tv_primary_mini"
+        android:layout_below="@id/tvRazon"
+        android:layout_alignStart="@+id/tvTituloUnidad"
+        android:layout_alignEnd="@+id/tvTituloUnidad"
+        android:layout_marginTop="0dp"
+        android:text="Dirección" />
+
+    <TextView
+        android:id="@+id/tvDireccion"
+        style="@style/tv_primary_bold_left"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTituloDireccion"
+        android:layout_alignStart="@+id/tvTituloUnidad"
+        android:layout_alignEnd="@+id/tvTituloUnidad"
+        android:layout_marginTop="0dp"
+        android:text="MARASSO ARTURO 214" />
+
+    <ImageButton
+        android:id="@+id/bEliminar"
+        style="@style/b_primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/ic_delete" />
+</RelativeLayout>

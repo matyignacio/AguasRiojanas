@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1976d2</color>
-    <color name="colorPrimaryDark">#0d47a1</color>
-    <color name="colorAccent">#558b2f</color>
+    <color name="colorPrimary">#0093BD</color><!-- MATERIAL 700 #1976d2-->
+    <!-- <color name="colorPrimarySemiDark">#1565C0</color>MATERIAL 800-->
+    <color name="colorPrimaryDark">#0071C1</color><!--MATERIAL 900 #0d47a1-->
+    <color name="colorAccent">#4BBAE2</color>  <!--4BA195-->
+    <color name="colorAccentLight">#4BBAE2</color> <!--74AF9F-->
+    <color name="white">#FFFFFF</color>
+    <color name="whiteWithOpacity">#D9FFFFFF</color> <!-- D9FFFFFF = 85% ; B3FFFFFF = 70%-->
     <color name="textColorPrimaryAppBar">#FFFFFF</color>
     <color name="textColorPrimary">#000000</color>
-    <color name="backgroundColor">#ededed</color>
+    <color name="backgroundColor">#E9E9E9</color>
     <!--<color name="backgroundDisabled">#d32f2f</color>-->
     <color name="backgroundDisabled">#6c6c6c</color>
     <color name="marcador_amarillo">#FFEB3B</color>

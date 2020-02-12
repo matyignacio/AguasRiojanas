@@ -17,8 +17,29 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.LoginActivity"
-            android:screenOrientation="portrait">
+            android:name=".ui.unidadfacturacion.EstadoCuentaActivity"
+            android:label="@string/title_activity_estado_cuenta"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.unidadfacturacion.ComprobanteUnidadActivity"
+            android:label="@string/title_activity_estado_cuenta"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.unidadfacturacion.NuevaUnidadEdelarActivity"
+            android:label="@string/title_activity_nueva_unidad"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.unidadfacturacion.NuevaUnidadAguasActivity"
+            android:label="@string/title_activity_nueva_unidad"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.unidadfacturacion.UnidadFacturacionActivity"
+            android:label="@string/title_activity_unidad_facturacion"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,14 +54,17 @@
             android:name=".ui.login.GoogleSignInActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.DatosUtilesActivity"
+            android:name=".ui.ErrorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.datosutiles.DatosUtilesActivity"
             android:label="@string/title_activity_datos_utiles"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.WebActivity" />
+        <activity android:name=".ui.datosutiles.WebActivity" />
         <activity
             android:name=".ui.InicioActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.Splash" />
     </application>
 
 </manifest>

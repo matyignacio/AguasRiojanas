@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.desarrollo.kuky.aguasriojanas.controlador.InicioControlador;
+import com.desarrollo.kuky.aguasriojanas.ui.login.LoginActivity;
+import com.desarrollo.kuky.aguasriojanas.util.Util;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
@@ -19,23 +23,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import controlador.InicioControlador;
-import util.Util;
 
-import static com.desarrollo.kuky.aguasriojanas.ui.LoginActivity.mAuth;
-import static com.desarrollo.kuky.aguasriojanas.ui.LoginActivity.mGoogleSignInClient;
-import static util.Util.abrirActivity;
-import static util.Util.setPrimaryFontBold;
+import static com.desarrollo.kuky.aguasriojanas.ui.login.LoginActivity.mAuth;
+import static com.desarrollo.kuky.aguasriojanas.ui.login.LoginActivity.mGoogleSignInClient;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.abrirActivity;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.mostrarMensajeLog;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.setPrimaryFontBold;
 
 public class InicioActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button bUnidadFacturacion, bEstadoCuenta, bAsistenciaTecnica, bNotificaciones, bDatosUtiles;
+    Button bUnidadFacturacion, /*bEstadoCuenta, */
+            bAsistenciaTecnica, bNotificaciones, bDatosUtiles;
+    private ProgressBar progressBar;
+    private TextView tvProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+        progressBar = findViewById(R.id.progressBar);
+        tvProgressBar = findViewById(R.id.tvProgressBar);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,22 +59,26 @@ public class InicioActivity extends AppCompatActivity
         View headerView = navigationView.getHeaderView(0);
         TextView subTitle = headerView.findViewById(R.id.tvUsuarioNavBar);
         subTitle.setText(Objects.requireNonNull(LoginActivity.mAuth.getCurrentUser()).getDisplayName());
-
+        mostrarMensajeLog(this, mAuth.getCurrentUser().getUid());
         bUnidadFacturacion = findViewById(R.id.bUnidadesFacturacion);
-        bEstadoCuenta = findViewById(R.id.bEstadoCuenta);
+        //bEstadoCuenta = findViewById(R.id.bEstadoCuenta);
         bAsistenciaTecnica = findViewById(R.id.bAsistenciaTecnica);
         bNotificaciones = findViewById(R.id.bNotificaciones);
         bDatosUtiles = findViewById(R.id.bDatosUtiles);
         /*** SETEAMOS TYPEFACES ***********************************/
         setPrimaryFontBold(this, bUnidadFacturacion);
-        setPrimaryFontBold(this, bEstadoCuenta);
+        //setPrimaryFontBold(this, bEstadoCuenta);
         setPrimaryFontBold(this, bAsistenciaTecnica);
         setPrimaryFontBold(this, bNotificaciones);
         setPrimaryFontBold(this, bDatosUtiles);
         /**********************************************************/
+        bUnidadFacturacion.setOnClickListener(v -> {
+            InicioControlador inicioControlador = new InicioControlador();
+            inicioControlador.abrirUnidadFacturacionActivity(this, progressBar, tvProgressBar);
+        });
         bDatosUtiles.setOnClickListener(v -> {
             InicioControlador inicioControlador = new InicioControlador();
-            inicioControlador.abrirDatosUtiles(this);
+            inicioControlador.abrirDatosUtilesActivity(this, progressBar, tvProgressBar);
         });
     }
 

@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Aguas Riojanas</string>
-    <string name="b_datos_utiles">Datos Utiles</string>
+    <string name="b_datos_utiles">Datos Útiles</string>
     <string name="b_notificaciones">Notificaciones</string>
-    <string name="b_asistencia_tecnica">Asistencia Tecnica</string>
+    <string name="b_asistencia_tecnica">Asistencia Técnica</string>
     <string name="b_estado_de_cuenta">Estado de Cuenta</string>
-    <string name="b_unidad_facturacion">Unidad Facturacion</string>
-    <string name="title_activity_datos_utiles">Datos Utiles</string>
+    <string name="b_unidad_facturacion">Unidad Facturación</string>
+    <string name="title_activity_datos_utiles">Datos Útiles</string>
     <string name="menu_lugares_de_pago">Lugares pago</string>
     <string name="menu_oficinas_comerciales">Oficinas</string>
     <string name="menu_datos_de_contacto">Contacto</string>
@@ -14,16 +14,21 @@
     <string name="firebase_status_fmt">Firebase User: %s</string>
     <string name="google_status_fmt">Google User: %s</string>
     <string name="signed_out">Signed Out</string>
-    <string name="tv_aguas_riojanas_sapem">Aguas Riojanas SAPEM</string>
     <string name="tv_ingresar">Ingresar</string>
     <string name="b_iniciar_sesion_con_correo">Acceder con correo</string>
-    <string name="title_activity_emailpassword">Crear Cuenta / Iniciar Sesion</string>
-    <string name="title_activity_inicio">Aguas Riojanas</string>
+    <string name="title_activity_emailpassword">Crear Cuenta / Iniciar Sesión</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Aguas Riojanas SAPEM</string>
     <string name="nav_header_subtitle">desarrollo@aguasriojanas.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="cerrar_sesion">¿Esta seguro que desea cerrar sesion?</string>
-    <string name="cerrar_sesion_cuerpo">Recuerde que para volver a iniciar sesion debe estar en la misma red del servidor.</string>
+    <string name="cerrar_sesion">¿Esta seguro que desea cerrar sesión?</string>
+    <string name="tv_progress_bar">SINCRONIZANDO</string>
+    <string name="cerrar_sesion_cuerpo">Recuerde que para volver a iniciar sesión debe estar en la misma red del servidor.</string>
+    <string name="title_activity_unidad_facturacion">Unidad de Facturación</string>
+    <string name="title_activity_nueva_unidad">Nueva unidad</string>
+    <string name="title_activity_estado_cuenta">Estado de cuenta</string>
+    <string name="tab_text_1">Ultimo</string>
+    <string name="tab_text_2">Vencidos</string>
+
 </resources>

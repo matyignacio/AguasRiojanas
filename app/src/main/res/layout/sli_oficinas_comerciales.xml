@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/llOficinas"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    style="@style/background_card">
 
     <TextView
         android:id="@+id/tvLocalidad"
         style="@style/tv_primary_bold_left"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 

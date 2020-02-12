@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/layout_primary"
-    tools:context=".ui.DatosUtilesFragments.OficinasComerciales">
+    tools:context=".ui.datosutiles.datosutilesfragments.OficinasComerciales">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,8 +11,7 @@
         <ListView
             android:id="@+id/lvOficinas"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" />
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
 </FrameLayout>

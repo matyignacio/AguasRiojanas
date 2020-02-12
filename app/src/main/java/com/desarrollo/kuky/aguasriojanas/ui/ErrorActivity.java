@@ -7,10 +7,10 @@ import com.desarrollo.kuky.aguasriojanas.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static util.Errores.ERROR_PREFERENCE;
-import static util.Errores.MENSAJE_ERROR;
-import static util.Util.abrirActivity;
-import static util.Util.getPreference;
+import static com.desarrollo.kuky.aguasriojanas.util.Errores.ERROR_PREFERENCE;
+import static com.desarrollo.kuky.aguasriojanas.util.Errores.MENSAJE_ERROR;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.abrirActivity;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.getPreference;
 
 public class ErrorActivity extends AppCompatActivity {
     TextView tvError;

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout_primary"
+    tools:context=".ui.unidadfacturacion.NuevaUnidadAguasActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlUnidadEdelar"
+        style="@style/background_card">
+
+        <TextView
+            android:id="@+id/tv_numero_unidad"
+            style="@style/tv_primary_mini"
+            android:layout_alignStart="@id/et_numero_unidad"
+            android:layout_marginTop="5dp"
+            android:text="Numero de unidad" />
+
+        <EditText
+            android:id="@+id/et_numero_unidad"
+            style="@style/et_primary"
+            android:layout_below="@id/tv_numero_unidad"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:hint="Unidad"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_numero_comprobante"
+            style="@style/tv_primary_mini"
+            android:layout_below="@id/et_numero_unidad"
+            android:layout_alignStart="@id/et_numero_unidad"
+            android:layout_marginTop="15dp"
+            android:ems="15"
+            android:text="Numero de Comprobante" />
+
+        <EditText
+            android:id="@+id/et_numero_comprobante"
+            style="@style/et_primary"
+            android:layout_below="@id/tv_numero_comprobante"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:hint="Comprobante"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tv_relacion_inmueble"
+            style="@style/tv_primary_mini"
+            android:layout_below="@id/et_numero_comprobante"
+            android:layout_alignStart="@id/et_numero_unidad"
+            android:layout_marginTop="15dp"
+            android:ems="15"
+            android:text="Relacion con el inmueble" />
+
+        <Spinner
+            android:id="@+id/sp_relacion_inmueble"
+            style="@style/et_primary"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_relacion_inmueble"
+            android:layout_alignStart="@+id/et_numero_comprobante"
+            android:layout_alignEnd="@id/et_numero_comprobante"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/sp_redondo" />
+
+        <TextView
+            android:id="@+id/tv_instrucciones"
+            style="@style/tv_primary_bold_center"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sp_relacion_inmueble"
+            android:layout_alignStart="@id/et_numero_unidad"
+            android:layout_marginTop="15dp"
+            android:text="De su boleta de Aguas consiga el numero de UNIDAD y numero de COMPROBANTE (como se muestra en la imagen) para poder dar de alta la unidad." />
+
+        <ImageView
+            android:id="@+id/instrucciones_ar"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_below="@id/tv_instrucciones"
+            android:layout_alignStart="@+id/sp_relacion_inmueble"
+            android:layout_alignEnd="@+id/sp_relacion_inmueble"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/instrucciones_ar" />
+
+        <Button
+            android:id="@+id/b_alta_unidad"
+            style="@style/b_primary"
+            android:layout_below="@id/instrucciones_ar"
+            android:text="BUSCAR UNIDAD" />
+
+        <RelativeLayout
+            android:id="@+id/rlProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:indeterminate="true"
+                android:theme="@style/progress_bar"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvProgressBar"
+                style="@style/tv_primary_progress_bar"
+                android:layout_above="@+id/progressBar"
+                android:layout_centerHorizontal="true"
+                android:text="@string/tv_progress_bar"
+                android:textAlignment="center"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

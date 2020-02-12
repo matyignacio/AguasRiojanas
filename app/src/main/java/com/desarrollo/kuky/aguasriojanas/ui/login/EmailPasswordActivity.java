@@ -9,7 +9,6 @@ import android.widget.EditText;
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
 import com.desarrollo.kuky.aguasriojanas.ui.InicioActivity;
-import com.desarrollo.kuky.aguasriojanas.ui.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,8 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
 
-import static util.Util.abrirActivity;
-import static util.Util.mostrarMensaje;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.abrirActivity;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.mostrarMensaje;
 
 public class EmailPasswordActivity extends BaseActivity implements
         View.OnClickListener {

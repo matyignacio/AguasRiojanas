@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
-import com.desarrollo.kuky.aguasriojanas.ui.LoginActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,7 +24,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import androidx.annotation.NonNull;
 
-import static util.Util.abrirActivity;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.abrirActivity;
 
 /**
  * Demonstrate Firebase Authentication using a Google ID Token.

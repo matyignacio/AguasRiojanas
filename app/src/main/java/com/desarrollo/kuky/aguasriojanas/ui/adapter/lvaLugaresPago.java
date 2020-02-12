@@ -9,12 +9,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.desarrollo.kuky.aguasriojanas.objeto.LugarPago;
 
 import java.util.ArrayList;
 
-import objeto.LugarPago;
-
-import static util.Util.setPrimaryFontBold;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.setPrimaryFontBold;
 
 public class lvaLugaresPago extends BaseAdapter {
     // Declare Variables
