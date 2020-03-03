@@ -27,7 +27,7 @@ import static com.desarrollo.kuky.aguasriojanas.util.Util.lockProgressBar;
 import static com.desarrollo.kuky.aguasriojanas.util.Util.mostrarMensajeLog;
 import static com.desarrollo.kuky.aguasriojanas.util.Util.setPreference;
 
-public class RelacionInmuebleControlador {
+class RelacionInmuebleControlador {
 
     void syncRelacionesInmuebles(Activity a, ProgressBar progressBar, TextView tvProgressBar, final ArrayList<RelacionInmueble> relacionesInmueblesGenerico, Callable<Void> method) {
         displayProgressBar(a, progressBar, tvProgressBar, "Obteniendo relaciones...");

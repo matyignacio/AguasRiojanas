@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/layout_login"
     tools:context=".ui.login.LoginActivity">
 
-    <RelativeLayout style="@style/layout_login">
-
-        <ImageView
-            android:id="@+id/icon"
-            style="@style/ThemeOverlay.FirebaseIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@id/signInGoogle"
-            android:layout_alignEnd="@id/signInGoogle"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/logo" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp">
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/signInGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/icon"
             android:layout_marginStart="40dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="40dp"
@@ -37,7 +30,5 @@
             android:layout_marginTop="15dp"
             app:colorScheme="dark" />
 
-
     </RelativeLayout>
-</ScrollView>
-
+</RelativeLayout>

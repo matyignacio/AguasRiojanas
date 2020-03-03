@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/background_card"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/tvTituloComprobante"
+        style="@style/tv_primary_mini_center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Comprobante" />
+
+    <TextView
+        android:id="@+id/tvComprobante"
+        style="@style/tv_primary_bold_center"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTituloComprobante"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="LIQB 0001 923214" />
+
+    <LinearLayout
+        android:id="@+id/llPrimerVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvComprobante"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTituloPeriodo1"
+                style="@style/tv_primary_mini_center"
+                android:text="Periodo" />
+
+            <TextView
+                android:id="@+id/tvPeriodo1"
+                style="@style/tv_primary_bold_center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:text="02-2020" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTituloVencimiento1"
+                style="@style/tv_primary_mini_center"
+                android:text="1er Vencimiento" />
+
+            <TextView
+                android:id="@+id/tvVencimiento1"
+                style="@style/tv_primary_bold_center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:text="14/02/2020" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvTituloImporte"
+        style="@style/tv_primary_mini_center"
+        android:layout_below="@id/llPrimerVencimiento"
+        android:layout_centerHorizontal="true"
+        android:text="Importe" />
+
+    <TextView
+        android:id="@+id/tvImporte"
+        style="@style/tv_primary_bold_center"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTituloImporte"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="$ 67.08" />
+
+    <LinearLayout
+        android:id="@+id/llSegundoVencimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvImporte"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTituloVencimiento2"
+                style="@style/tv_primary_mini_center"
+                android:text="2do Vencimiento" />
+
+            <TextView
+                android:id="@+id/tvVencimiento2"
+                style="@style/tv_primary_bold_center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:text="21/02/2020"
+                android:textColor="@color/marcador_rojo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTituloImporte2"
+                style="@style/tv_primary_mini_center"
+                android:layout_width="match_parent"
+                android:text="Importe con Recargo" />
+
+            <TextView
+                android:id="@+id/tvImporte2"
+                style="@style/tv_primary_bold_center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:text="$ 67.08"
+                android:textColor="@color/marcador_rojo" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bImprimirBoleta"
+        style="@style/b_primary"
+        android:layout_below="@id/llSegundoVencimiento"
+        android:text="Imprimir boleta" />
+
+</RelativeLayout>

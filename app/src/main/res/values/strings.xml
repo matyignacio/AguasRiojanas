@@ -2,7 +2,7 @@
     <string name="app_name">Aguas Riojanas</string>
     <string name="b_datos_utiles">Datos Útiles</string>
     <string name="b_notificaciones">Notificaciones</string>
-    <string name="b_asistencia_tecnica">Asistencia Técnica</string>
+    <string name="b_reclamo">Reclamos</string>
     <string name="b_estado_de_cuenta">Estado de Cuenta</string>
     <string name="b_unidad_facturacion">Unidad Facturación</string>
     <string name="title_activity_datos_utiles">Datos Útiles</string>
@@ -28,7 +28,25 @@
     <string name="title_activity_unidad_facturacion">Unidad de Facturación</string>
     <string name="title_activity_nueva_unidad">Nueva unidad</string>
     <string name="title_activity_estado_cuenta">Estado de cuenta</string>
-    <string name="tab_text_1">Ultimo</string>
-    <string name="tab_text_2">Vencidos</string>
+    <string name="title_activity_reclamos">Reclamos</string>
+    <string name="title_activity_nuevo_reclamo">Nuevo reclamo</string>
+    <string name="tab_estado_cuenta_1">Último</string>
+    <string name="tab_estado_cuenta_2">Vencidos</string>
+    <string name="tab_reclamo_1">Solicitados</string>
+    <string name="tab_reclamo_2">Terminados</string>
+    <string name="fab_reclamo">Nuevo</string>
+    <string name="tv_ubicacion_de_reclamo">Ubicación del reclamo</string>
+    <string name="tv_unidades_de_reclamo">Unidad</string>
+    <string name="tv_tipo_de_reclamo">Tipo de reclamo</string>
+    <string name="hint_direccion_del_reclamo">Dirección del reclamo</string>
+    <string name="hint_descripcion_reclamo">Descripción\n(opcional)</string>
+    <string name="b_enviar_reclamo">Enviar reclamo</string>
+    <string name="menu_cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="request_permission">Se necesita el permiso de la camara para poder adjuntar fotos al reclamo.</string>
+    <string name="camera_error">Este dipositivo no soporta el uso de la API Camera2.</string>
+    <string name="bGuardar">Guardar</string>
+    <string name="bVolver">Volver</string>
+    <string name="b_capturar_foto">Tomar foto</string>
+    <string name="b_capturar_foto_lista">Foto lista</string>
 
 </resources>

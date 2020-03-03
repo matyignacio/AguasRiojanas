@@ -26,7 +26,6 @@ import static com.desarrollo.kuky.aguasriojanas.util.Util.validarCampos;
 public class NuevaUnidadAguasActivity extends AppCompatActivity {
 
     public static ArrayList<RelacionInmueble> relacionesInmuebles;
-    private ArrayList<EditText> inputs = new ArrayList<>();
     private ProgressBar progressBar;
     private TextView tvProgressBar;
     TextView tvInstrucciones;
@@ -44,8 +43,6 @@ public class NuevaUnidadAguasActivity extends AppCompatActivity {
         tvInstrucciones = findViewById(R.id.tv_instrucciones);
         etNumeroUnidad = findViewById(R.id.et_numero_unidad);
         etNumeroComprobante = findViewById(R.id.et_numero_comprobante);
-        inputs.add(etNumeroUnidad);
-        inputs.add(etNumeroComprobante);
         sRelacionInmueble = findViewById(R.id.sp_relacion_inmueble);
         bAltaUnidad = findViewById(R.id.b_alta_unidad);
         ///////////////////////////////////////////////////////////////
@@ -65,13 +62,10 @@ public class NuevaUnidadAguasActivity extends AppCompatActivity {
                 () -> {
 
                     return null;
-                },
-                () -> {
-                    return null;
                 });
         /**************************************************************/
         bAltaUnidad.setOnClickListener(v -> {
-            if (validarCampos(this, inputs) == EXITOSO) {
+            if (validarCampos(this, etNumeroUnidad, etNumeroComprobante) == EXITOSO) {
                 UnidadControlador unidadControlador = new UnidadControlador();
                 unidadControlador.buscarUnidadAguas(this, progressBar, tvProgressBar,
                         Integer.parseInt(etNumeroUnidad.getText().toString()),

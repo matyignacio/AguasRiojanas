@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 
 import static com.desarrollo.kuky.aguasriojanas.util.Util.abrirActivity;
-import static com.desarrollo.kuky.aguasriojanas.util.Util.abrirActivityWithBundle;
 
 public class UnidadFacturacionActivity extends AppCompatActivity {
 
@@ -37,9 +36,10 @@ public class UnidadFacturacionActivity extends AppCompatActivity {
         lvUnidades.setAdapter(adaptador);
         lvUnidades.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         lvUnidades.setOnItemClickListener((parent, view, position, id) -> {
-            Bundle mBundle = new Bundle();
-            mBundle.putInt("unidad", unidades.get(position).getUnidad());
-            abrirActivityWithBundle(this, EstadoCuentaActivity.class, mBundle);
+            UnidadFacturacionControlador unidadFacturacionControlador = new UnidadFacturacionControlador();
+            unidadFacturacionControlador.abrirEstadoCuenta(
+                    UnidadFacturacionActivity.this, progressBar, tvProgressBar, unidades.get(position).getUnidad()
+            );
         });
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> Util.createCustomDialog(UnidadFacturacionActivity.this, "Nueva unidad",

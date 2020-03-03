@@ -57,7 +57,7 @@ public class BaseHelper extends SQLiteOpenHelper {
             "  PRIMARY KEY (id)" +
             ") ";
 
-    private String sqlTablaOficinasComerciales = "CREATE TABLE IF NOT EXISTS oficinas_comerciales (" +
+    private String sqlTablaOficinasComerciales = "CREATE TABLE IF NOT EXISTS lugares_pago (" +
             "  id int(11) NOT NULL," +
             "  localidad varchar(30) NOT NULL," +
             "  direccion varchar(45) NOT NULL," +

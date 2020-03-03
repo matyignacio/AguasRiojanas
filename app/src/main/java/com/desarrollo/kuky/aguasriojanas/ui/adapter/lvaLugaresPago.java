@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
-import com.desarrollo.kuky.aguasriojanas.objeto.LugarPago;
+import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.LugarPago;
 
 import java.util.ArrayList;
 

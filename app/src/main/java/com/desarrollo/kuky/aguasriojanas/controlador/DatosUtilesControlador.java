@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
-import com.desarrollo.kuky.aguasriojanas.objeto.DatoContacto;
-import com.desarrollo.kuky.aguasriojanas.objeto.LugarPago;
-import com.desarrollo.kuky.aguasriojanas.objeto.OficinaComercial;
+import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.DatoContacto;
+import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.LugarPago;
+import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.OficinaComercial;
 import com.desarrollo.kuky.aguasriojanas.ui.ErrorActivity;
 
 import org.json.JSONArray;

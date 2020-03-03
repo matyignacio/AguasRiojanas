@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/background_card"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/tvFechaReclamo"
+        style="@style/tv_primary_mini"
+        android:layout_alignParentTop="true"
+        android:text="Fecha" />
+
+    <TextView
+        android:id="@+id/tvFecha"
+        style="@style/tv_primary_bold_left"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvFechaReclamo"
+        android:layout_marginTop="0dp"
+        android:text="21/02/2020" />
+
+    <TextView
+        android:id="@+id/tvTipoReclamo"
+        style="@style/tv_primary_mini"
+        android:layout_below="@+id/tvFecha"
+        android:ems="15"
+        android:text="Tipo de reclamo" />
+
+    <TextView
+        android:id="@+id/etTipoReclamo"
+        style="@style/tv_primary_bold_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTipoReclamo"
+        android:layout_marginTop="0dp"
+        android:text="Perdida en vereda o calzada" />
+
+    <TextView
+        android:id="@+id/tvDireccion"
+        style="@style/tv_primary_mini"
+        android:layout_below="@+id/etTipoReclamo"
+        android:ems="15"
+        android:text="Direccion" />
+
+    <TextView
+        android:id="@+id/etDireccion"
+        style="@style/tv_primary_bold_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDireccion"
+        android:layout_marginTop="0dp"
+        android:text="Arturo Marasso 214" />
+
+
+</RelativeLayout>

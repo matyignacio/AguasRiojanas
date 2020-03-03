@@ -7,7 +7,7 @@ import android.webkit.WebView;
 
 import com.desarrollo.kuky.aguasriojanas.R;
 import com.desarrollo.kuky.aguasriojanas.controlador.DatosUtilesControlador;
-import com.desarrollo.kuky.aguasriojanas.objeto.DatoContacto;
+import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.DatoContacto;
 
 import androidx.appcompat.app.AppCompatActivity;
 

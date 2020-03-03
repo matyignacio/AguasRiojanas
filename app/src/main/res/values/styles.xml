@@ -104,6 +104,14 @@
         <item name="android:layout_marginTop">0dp</item>
     </style>
 
+    <style name="tv_primary_mini_center" parent="tv_primary">
+        <item name="android:textSize">12sp</item>
+        <item name="android:ems">8</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
     <style name="tv_primary_bold_center" parent="tv_primary_bold_left">
         <item name="android:gravity">center</item>
     </style>

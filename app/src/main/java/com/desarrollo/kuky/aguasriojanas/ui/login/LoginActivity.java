@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
+import com.desarrollo.kuky.aguasriojanas.controlador.InicioControlador;
 import com.desarrollo.kuky.aguasriojanas.ui.InicioActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -75,6 +76,8 @@ public class LoginActivity extends BaseActivity implements
         // Check if user is signed in (non-null) open InicioActivity.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
+            InicioControlador inicioControlador = new InicioControlador();
+            inicioControlador.actualizarTablas(this);
             abrirActivity(this, InicioActivity.class);
         }
     }

@@ -14,6 +14,7 @@ import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,10 +34,12 @@ import com.desarrollo.kuky.aguasriojanas.R;
 import com.google.android.gms.common.SignInButton;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 
 import androidx.appcompat.app.AlertDialog;
@@ -52,12 +55,13 @@ public class Util {
     public static final String VOLLEY_HOST = "http://volley.aguasriojanas.com.ar/presionaguas/";
     public static final String MODULO_AGUAS_RIOJANAS = "aguasriojanas/";
     public static final int EXITOSO = 1;
+    public static final String EXITO = "EXITO";
     public static final int ERROR = 0;
     public static final int MY_DEFAULT_TIMEOUT = 60000;
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String font_primary_path = "font/font_primary.ttf";
     private static final String font_primary_bold_path = "font/font_primary_bold.ttf";
-    public static final String POSICION_SELECCIONADA = "posicion_seleccionada_spinner";
+    private static final String POSICION_SELECCIONADA = "posicion_seleccionada_spinner";
 
     public static void abrirActivity(Activity a, Class destino) {
         Intent intent = new Intent(a, destino);
@@ -76,7 +80,6 @@ public class Util {
         a.startActivity(intent);
         a.finish();
     }
-
 
     public static void abrirFragmento(Activity a, int layout, Fragment fragment) {
         //Paso 1: Obtener la instancia del administrador de fragmentos
@@ -109,18 +112,17 @@ public class Util {
     }
 
     public static String convertirFecha(Date date) {
-        String fecha, hora;
+        String fecha;
         fecha = DateFormat.getDateInstance(DateFormat.SHORT).format(date);
-        hora = DateFormat.getTimeInstance(DateFormat.SHORT).format(date);
-        return fecha + "\na las " + hora;
+        return fecha;
     }
 
-    public static int validarCampos(Activity a, ArrayList<EditText> inputs) {
+    public static int validarCampos(Activity a, EditText... inputs) {
         int i;
-        for (i = 0; i < inputs.size(); i++) {
-            if (inputs.get(i).getText().toString().equals("")) {
-                mostrarMensaje(a, "Debe llenar el campo " + inputs.get(i).getHint().toString());
-                inputs.get(i).requestFocus();
+        for (i = 0; i < inputs.length; i++) {
+            if (inputs[i].getText().toString().equals("")) {
+                mostrarMensaje(a, "Debe llenar el campo " + inputs[i].getHint().toString());
+                inputs[i].requestFocus();
                 return ERROR;
             }
         }
@@ -190,29 +192,35 @@ public class Util {
     public static byte[] comprimirImagen(byte[] bytes) {
         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, null);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 20, stream);
+        bmp.compress(Bitmap.CompressFormat.PNG, 20, stream);
         bytes = stream.toByteArray();
         return bytes;
+    }
+
+    public static String imageToString(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+        byte[] bytes = stream.toByteArray();
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
+    }
+
+
+    public static byte[] getBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+
+        int len = 0;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return byteBuffer.toByteArray();
     }
 
     public static Bitmap rotarBitMap(Bitmap bmp, int angulo) {
         Matrix matrix = new Matrix();
         matrix.postRotate(angulo);
         return Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
-    }
-
-    public static void checkConnection(Activity a, Callable<Void> method) {
-        InternetDetector internetDetector;
-        internetDetector = new InternetDetector(a);
-        if (!internetDetector.checkMobileInternetConn()) {
-            mostrarMensaje(a, "No hay conexion de red disponible.");
-        } else {
-            try {
-                method.call();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public static void customizeGooglePlusButton(SignInButton signInButton, String mensaje, Context c) {
@@ -246,7 +254,7 @@ public class Util {
         }
     }
 
-    public static void setEnabledActivity(Activity a, Boolean estado) {
+    private static void setEnabledActivity(Activity a, Boolean estado) {
         if (estado) {
             a.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         } else {
@@ -255,7 +263,7 @@ public class Util {
         }
     }
 
-    public static void progressBarVisibility(ProgressBar progressBar, TextView
+    private static void progressBarVisibility(ProgressBar progressBar, TextView
             tvProgressBar, Boolean visible) {
         if (visible) {
             progressBar.setVisibility(View.VISIBLE);
@@ -266,7 +274,7 @@ public class Util {
         }
     }
 
-    public static void ocultarTeclado(Activity a, View view) {
+    private static void ocultarTeclado(Activity a, View view) {
         try {
             InputMethodManager imm = (InputMethodManager) a.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
@@ -287,28 +295,6 @@ public class Util {
             tvProgressBar) {
         setEnabledActivity(a, true);
         progressBarVisibility(progressBar, tvProgressBar, false);
-    }
-
-    public static void showDialog(final Activity a, int dialog, String mensajeSI, Callable<Void> methodParam) {
-        // get prompts.xml view
-        LayoutInflater layoutInflater = LayoutInflater.from(a);
-        View promptView = layoutInflater.inflate(dialog, null);
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
-        alertDialogBuilder.setView(promptView);
-        // setup a dialog window
-        alertDialogBuilder.setCancelable(false)
-                .setPositiveButton(mensajeSI, (dialog1, id) -> {
-                    try {
-                        methodParam.call();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                })
-                .setNegativeButton("Cancelar", (dialog2, id) -> dialog2.cancel());
-
-        // create an alert dialog
-        AlertDialog alert = alertDialogBuilder.create();
-        alert.show();
     }
 
     public static AlertDialog createCustomDialog(Activity a,
@@ -333,7 +319,7 @@ public class Util {
         bCancelar.setText(mensajeNo);
         builder.setView(v);
         alertDialog = builder.create();
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         // Add action buttons
         bAceptar.setOnClickListener(
                 v12 -> {
@@ -363,8 +349,7 @@ public class Util {
                                      Activity a,
                                      int dato,
                                      List<String> labels,
-                                     Callable<Void> methodAcept,
-                                     Callable<Void> methodCancel) {
+                                     Callable<Void> methodAcept) {
         spinner.setBackgroundResource(R.drawable.sp_redondo);
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(a,
                 R.layout.spinner_item, labels);
@@ -385,12 +370,22 @@ public class Util {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                try {
-                    methodCancel.call();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                // NO HACE NADA
             }
         });
+    }
+
+    public static String formatearFechaString(String fecha) {
+        return fecha.substring(8, 10) + "/" +
+                fecha.substring(5, 7) + "/" +
+                fecha.substring(0, 4);
+    }
+
+    public static void intentar(Callable<Void> method) {
+        try {
+            method.call();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

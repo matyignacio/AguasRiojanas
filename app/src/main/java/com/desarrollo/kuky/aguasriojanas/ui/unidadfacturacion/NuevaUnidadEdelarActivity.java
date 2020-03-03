@@ -25,7 +25,6 @@ import static com.desarrollo.kuky.aguasriojanas.util.Util.validarCampos;
 
 public class NuevaUnidadEdelarActivity extends AppCompatActivity {
     public static ArrayList<RelacionInmueble> relacionesInmuebles;
-    private ArrayList<EditText> inputs = new ArrayList<>();
     private ProgressBar progressBar;
     private TextView tvProgressBar;
     TextView tvInstrucciones;
@@ -43,8 +42,6 @@ public class NuevaUnidadEdelarActivity extends AppCompatActivity {
         tvInstrucciones = findViewById(R.id.tv_instrucciones);
         etNis = findViewById(R.id.et_numero_unidad);
         etNumeroCliente = findViewById(R.id.et_numero_comprobante);
-        inputs.add(etNis);
-        inputs.add(etNumeroCliente);
         sRelacionInmueble = findViewById(R.id.sp_relacion_inmueble);
         bAltaUnidad = findViewById(R.id.b_alta_unidad);
         ///////////////////////////////////////////////////////////////
@@ -61,16 +58,10 @@ public class NuevaUnidadEdelarActivity extends AppCompatActivity {
                 NuevaUnidadEdelarActivity.this,
                 0,
                 labelsRelacionInmueble,
-                () -> {
-
-                    return null;
-                },
-                () -> {
-                    return null;
-                });
+                () -> null);
         /* *************************************************************/
         bAltaUnidad.setOnClickListener(v -> {
-            if (validarCampos(this, inputs) == EXITOSO) {
+            if (validarCampos(this, etNis, etNumeroCliente) == EXITOSO) {
                 UnidadControlador unidadControlador = new UnidadControlador();
                 unidadControlador.buscarUnidadEdelar(this, progressBar, tvProgressBar,
                         Integer.parseInt(etNis.getText().toString()),

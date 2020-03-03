@@ -98,6 +98,7 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/tvProgressBar"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
@@ -108,8 +109,6 @@
             <TextView
                 android:id="@+id/tvProgressBar"
                 style="@style/tv_primary_progress_bar"
-                android:layout_above="@+id/progressBar"
-                android:layout_centerHorizontal="true"
                 android:text="@string/tv_progress_bar"
                 android:textAlignment="center"
                 android:visibility="gone" />
