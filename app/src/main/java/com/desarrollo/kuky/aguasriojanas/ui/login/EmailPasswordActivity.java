@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
-import com.desarrollo.kuky.aguasriojanas.ui.InicioActivity;
+import com.desarrollo.kuky.aguasriojanas.controlador.InicioControlador;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -127,7 +127,8 @@ public class EmailPasswordActivity extends BaseActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             LoginActivity.mAuth = FirebaseAuth.getInstance();
-                            abrirActivity(EmailPasswordActivity.this, InicioActivity.class);
+                            InicioControlador inicioControlador = new InicioControlador();
+                            inicioControlador.abrirInicioActivity(EmailPasswordActivity.this);
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

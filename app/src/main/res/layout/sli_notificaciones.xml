@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/background_card"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/tvFecha"
+        style="@style/tv_primary_mini"
+        android:textSize="15sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="06/03/2020" />
+
+    <TextView
+        android:id="@+id/tvResumen"
+        style="@style/tv_primary_bold_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvFecha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:ems="15"
+        android:text="Habra cortes programados para el dia 07/03 por el barrio vargas." />
+</RelativeLayout>

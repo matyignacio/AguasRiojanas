@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.desarrollo.kuky.aguasriojanas.BaseActivity;
 import com.desarrollo.kuky.aguasriojanas.R;
 import com.desarrollo.kuky.aguasriojanas.controlador.InicioControlador;
-import com.desarrollo.kuky.aguasriojanas.ui.InicioActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -30,7 +31,8 @@ import static com.desarrollo.kuky.aguasriojanas.util.Util.customizeGooglePlusBut
 
 public class LoginActivity extends BaseActivity implements
         View.OnClickListener {
-
+    private ProgressBar progressBar;
+    private TextView tvProgressBar;
     // [START declare_auth]
     public static FirebaseAuth mAuth;
     // [END declare_auth]
@@ -45,6 +47,8 @@ public class LoginActivity extends BaseActivity implements
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        progressBar = findViewById(R.id.progressBar);
+        tvProgressBar = findViewById(R.id.tvProgressBar);
 
         // [START config_signin]
         // Configure Google Sign In
@@ -78,7 +82,7 @@ public class LoginActivity extends BaseActivity implements
         if (currentUser != null) {
             InicioControlador inicioControlador = new InicioControlador();
             inicioControlador.actualizarTablas(this);
-            abrirActivity(this, InicioActivity.class);
+            inicioControlador.abrirInicioActivity(this, progressBar, tvProgressBar);
         }
     }
 

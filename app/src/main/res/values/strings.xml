@@ -6,6 +6,7 @@
     <string name="b_estado_de_cuenta">Estado de Cuenta</string>
     <string name="b_unidad_facturacion">Unidad Facturación</string>
     <string name="title_activity_datos_utiles">Datos Útiles</string>
+    <string name="title_activity_notificaciones">Notificaciones</string>
     <string name="menu_lugares_de_pago">Lugares pago</string>
     <string name="menu_oficinas_comerciales">Oficinas</string>
     <string name="menu_datos_de_contacto">Contacto</string>
@@ -48,5 +49,16 @@
     <string name="bVolver">Volver</string>
     <string name="b_capturar_foto">Tomar foto</string>
     <string name="b_capturar_foto_lista">Foto lista</string>
+
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <!--
+        This is the name that users will see when interacting with this channel.
+        It should describe the category of notifications that will be sent through this channel
+     -->
+    <!-- [START fcm_default_icon_string] -->
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
+    <!-- [END fcm_default_icon_string] -->
+    <string name="fcm_message">FCM Message</string>
 
 </resources>

@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.desarrollo.kuky.aguasriojanas.R;
-import com.desarrollo.kuky.aguasriojanas.controlador.DatosUtilesControlador;
+import com.desarrollo.kuky.aguasriojanas.controlador.datosutiles.DatosUtilesControlador;
 import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.DatoContacto;
 import com.desarrollo.kuky.aguasriojanas.ui.datosutiles.WebActivity;
 

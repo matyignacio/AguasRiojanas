@@ -32,6 +32,7 @@ import static com.desarrollo.kuky.aguasriojanas.util.Util.setPrimaryFontBold;
 
 public class InicioActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String TAG = "InicioActivity";
 
     Button bUnidadFacturacion, bReclamo, bNotificaciones, bDatosUtiles;
     private ProgressBar progressBar;
@@ -79,6 +80,10 @@ public class InicioActivity extends AppCompatActivity
         bReclamo.setOnClickListener(v -> {
             InicioControlador inicioControlador = new InicioControlador();
             inicioControlador.abrirReclamoActivity(this, progressBar, tvProgressBar);
+        });
+        bNotificaciones.setOnClickListener(v -> {
+            InicioControlador inicioControlador = new InicioControlador();
+            inicioControlador.abrirNotificacionActivity(this, progressBar, tvProgressBar);
         });
         bDatosUtiles.setOnClickListener(v -> {
             InicioControlador inicioControlador = new InicioControlador();

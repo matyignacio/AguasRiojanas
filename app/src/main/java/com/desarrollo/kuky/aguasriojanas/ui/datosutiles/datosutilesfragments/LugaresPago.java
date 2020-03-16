@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.desarrollo.kuky.aguasriojanas.R;
-import com.desarrollo.kuky.aguasriojanas.controlador.DatosUtilesControlador;
+import com.desarrollo.kuky.aguasriojanas.controlador.datosutiles.DatosUtilesControlador;
 import com.desarrollo.kuky.aguasriojanas.ui.adapter.lvaLugaresPago;
 
 public class LugaresPago extends Fragment {

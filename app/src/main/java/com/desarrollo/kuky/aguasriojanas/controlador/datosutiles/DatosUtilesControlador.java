@@ -1,4 +1,4 @@
-package com.desarrollo.kuky.aguasriojanas.controlador;
+package com.desarrollo.kuky.aguasriojanas.controlador.datosutiles;
 
 import android.app.Activity;
 import android.database.Cursor;
@@ -6,10 +6,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
+import com.desarrollo.kuky.aguasriojanas.controlador.BaseHelper;
+import com.desarrollo.kuky.aguasriojanas.controlador.VolleySingleton;
 import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.DatoContacto;
 import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.LugarPago;
 import com.desarrollo.kuky.aguasriojanas.objeto.datosutiles.OficinaComercial;
@@ -27,13 +28,14 @@ import static com.desarrollo.kuky.aguasriojanas.util.Util.VOLLEY_HOST;
 import static com.desarrollo.kuky.aguasriojanas.util.Util.abrirActivity;
 import static com.desarrollo.kuky.aguasriojanas.util.Util.displayProgressBar;
 import static com.desarrollo.kuky.aguasriojanas.util.Util.lockProgressBar;
+import static com.desarrollo.kuky.aguasriojanas.util.Util.mostrarMensaje;
 import static com.desarrollo.kuky.aguasriojanas.util.Util.mostrarMensajeLog;
 import static com.desarrollo.kuky.aguasriojanas.util.Util.setPreference;
 
 public class DatosUtilesControlador {
     private static final String TAG = DatosUtilesControlador.class.getSimpleName();
 
-    void syncDatosContacto(Activity a, ProgressBar progressBar, TextView tvProgressBar, Callable<Void> method) {
+    public void syncDatosContacto(Activity a, ProgressBar progressBar, TextView tvProgressBar, Callable<Void> method) {
         displayProgressBar(a, progressBar, tvProgressBar, "Obteniendo datos de contacto...");
         StringRequest request = new StringRequest(Request.Method.POST, VOLLEY_HOST + MODULO_AGUAS_RIOJANAS + "datos_contacto_select.php", response -> {
             lockProgressBar(a, progressBar, tvProgressBar);
@@ -64,7 +66,7 @@ public class DatosUtilesControlador {
                     mostrarMensajeLog(a, e.toString());
                 }
             } else {
-                Toast.makeText(a, "No existe datos de contacto", Toast.LENGTH_SHORT).show();
+                mostrarMensaje(a, "No existen datos de contacto");
             }
         }, error -> {
             lockProgressBar(a, progressBar, tvProgressBar);
@@ -77,7 +79,7 @@ public class DatosUtilesControlador {
         VolleySingleton.getInstance(a).addToRequestQueue(request);
     }
 
-    void syncOficinasComerciales(Activity a, ProgressBar progressBar, TextView tvProgressBar, Callable<Void> method) {
+    public void syncOficinasComerciales(Activity a, ProgressBar progressBar, TextView tvProgressBar, Callable<Void> method) {
         displayProgressBar(a, progressBar, tvProgressBar, "Obteniendo oficinas comerciales...");
         StringRequest request = new StringRequest(Request.Method.POST, VOLLEY_HOST + MODULO_AGUAS_RIOJANAS + "oficinas_comerciales_select.php", response -> {
             lockProgressBar(a, progressBar, tvProgressBar);
@@ -109,7 +111,7 @@ public class DatosUtilesControlador {
                     mostrarMensajeLog(a, e.toString());
                 }
             } else {
-                Toast.makeText(a, "No hay oficinas comerciales", Toast.LENGTH_SHORT).show();
+                mostrarMensaje(a, "No hay oficinas comerciales");
             }
         }, error -> {
             lockProgressBar(a, progressBar, tvProgressBar);
@@ -122,7 +124,7 @@ public class DatosUtilesControlador {
         VolleySingleton.getInstance(a).addToRequestQueue(request);
     }
 
-    void syncLugaresPago(Activity a, ProgressBar progressBar, TextView tvProgressBar, Callable<Void> method) {
+    public void syncLugaresPago(Activity a, ProgressBar progressBar, TextView tvProgressBar, Callable<Void> method) {
         displayProgressBar(a, progressBar, tvProgressBar, "Obteniendo lugares de pago...");
         StringRequest request = new StringRequest(Request.Method.POST, VOLLEY_HOST + MODULO_AGUAS_RIOJANAS + "lugares_pago_select.php", response -> {
             lockProgressBar(a, progressBar, tvProgressBar);
@@ -152,7 +154,7 @@ public class DatosUtilesControlador {
                     mostrarMensajeLog(a, e.toString());
                 }
             } else {
-                Toast.makeText(a, "No hay lugares de pago", Toast.LENGTH_SHORT).show();
+                mostrarMensaje(a, "No hay lugares de pago");
             }
         }, error -> {
             lockProgressBar(a, progressBar, tvProgressBar);

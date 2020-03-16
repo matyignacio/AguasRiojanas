@@ -52,11 +52,12 @@ public class Util {
     /**
      * CONEXION
      ********************************************/
-    public static final String VOLLEY_HOST = "http://volley.aguasriojanas.com.ar/presionaguas/";
+//    public static final String VOLLEY_HOST = "http://volley.aguasriojanas.com.ar/presionaguas/";
+    public static final String VOLLEY_HOST = "http://volley.aguasriojanas.com.ar/presionaguas-debug/";
     public static final String MODULO_AGUAS_RIOJANAS = "aguasriojanas/";
     public static final int EXITOSO = 1;
     public static final String EXITO = "EXITO";
-    public static final int ERROR = 0;
+    private static final int ERROR = 0;
     public static final int MY_DEFAULT_TIMEOUT = 60000;
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String font_primary_path = "font/font_primary.ttf";
