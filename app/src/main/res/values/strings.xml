@@ -60,5 +60,6 @@
     <string name="default_notification_channel_name" translatable="true">Weather</string>
     <!-- [END fcm_default_icon_string] -->
     <string name="fcm_message">FCM Message</string>
+    <string name="b_nueva_unidad">Nueva Unidad</string>
 
 </resources>
