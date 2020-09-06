@@ -17,11 +17,11 @@
         app:srcCompat="@drawable/ic_add_white_24dp" />-->
 
     <Button
-        android:id="@+id/fab"
-        style="@style/b_primary"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:text="@string/b_nueva_unidad"
-        app:srcCompat="@drawable/ic_add_white_24dp" />
+       android:id="@+id/fab"
+       style="@style/b_primary"
+       android:layout_gravity="bottom|end"
+       android:layout_margin="@dimen/fab_margin"
+       android:text="@string/b_nueva_unidad"
+       app:srcCompat="@drawable/ic_add_white_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

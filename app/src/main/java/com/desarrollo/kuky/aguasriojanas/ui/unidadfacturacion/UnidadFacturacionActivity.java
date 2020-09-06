@@ -1,6 +1,7 @@
 package com.desarrollo.kuky.aguasriojanas.ui.unidadfacturacion;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,7 +42,8 @@ public class UnidadFacturacionActivity extends AppCompatActivity {
                     UnidadFacturacionActivity.this, progressBar, tvProgressBar, unidades.get(position).getUnidad()
             );
         });
-        FloatingActionButton fab = findViewById(R.id.fab);
+        Button fab = findViewById(R.id.fab);
+        //FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> Util.createCustomDialog(UnidadFacturacionActivity.this, "Nueva unidad",
                 "Elija una opcion por la cual cargar una nueva unidad.",
                 "EDELAR",
